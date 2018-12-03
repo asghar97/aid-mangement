@@ -1,0 +1,2 @@
+
+<p> {{$model->id}} </p><p> {{$model->username}} </p><p> {{$model->first_name}} </p><p> {{$model->last_name}} </p><p> {{$model->password}} </p><p> {{$model->email}} </p><p> {{$model->image}} </p><p> {{$model->user_type}} </p><p> {{$model->created_by}} </p><p> {{$model->admin_id}} </p><p> {{$model->status}} </p><p> {{$model->date_added}} </p><p> {{$model->date_modified}} </p><p> {{$model->updated_at}} </p><p> {{$model->created_at}} </p><p> {{$model->remember_token}} </p><p> {{$model->social_id}} </p><p> {{$model->provider}} </p><p> {{$model->mobile}} </p>

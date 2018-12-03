@@ -1,0 +1,2 @@
+
+<p> {{$model->id}} </p><p> {{$model->donar_id}} </p><p> {{$model->amount}} </p><p> {{$model->currency}} </p><p> {{$model->type}} </p><p> {{$model->comment}} </p><p> {{$model->created_at}} </p><p> {{$model->updated_at}} </p><p> {{$model->status}} </p><p> {{$model->created_by}} </p>
