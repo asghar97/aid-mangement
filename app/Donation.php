@@ -10,7 +10,7 @@ class Donation extends Model
 	protected $table = 'donation';
 	  
 	protected $fillable = [
-        'id','donar_id','amount','currency','type','comment','created_at','updated_at','status','created_by'
+        'amount','currency','type','comment','created_at','updated_at','status','created_by'
     ];
 
 	static function getValidationRules(){

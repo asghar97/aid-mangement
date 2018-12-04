@@ -84,6 +84,7 @@
         source:"{{ url('AutoCompleteDonarName') }}", 
         minLength:1,
         select: function(event,ui){
+         
           $("#donar_id").val( ui.item.id );
         },
     });

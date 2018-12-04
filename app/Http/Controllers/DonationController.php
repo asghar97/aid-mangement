@@ -47,7 +47,8 @@ class DonationController extends Controller
     public function create()
     {
         $type = Type::pluck('name','name');
-        $currency = Currency::pluck('currency_name','id');
+        $currency = Currency::pluck('currency_symbols','id');
+        $currency_symbols = Currency::pluck('currency_symbols','id');
         return view('donations.create',compact('type','currency'));
     }
 
@@ -61,7 +62,14 @@ class DonationController extends Controller
         $this->validate($request, Donation::getValidationRules());
 
         $input = $request->all();
-
+        
+       // $rows = Donar::where('fname','LIKE',"%$match%")->get();
+       
+       if(($input['donar_id'])){
+             Session::flash('flash_message', 'Add Donar first !');
+       }
+       else{ }
+       
         $date = date('Y-m-d H:i:s');
         $input['created_by'] = Auth::user()->id;
         $input['status'] = 1;
@@ -148,7 +156,8 @@ class DonationController extends Controller
         $match = addcslashes($searched_word, '%_');
 
         $rows = Donar::where('fname','LIKE',"%$match%")->get();
-         
+
+
         $json_data = array();
         $arr = array();
         foreach($rows as $row){
