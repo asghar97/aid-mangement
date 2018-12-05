@@ -10,12 +10,12 @@ class Donation extends Model
 	protected $table = 'donation';
 	  
 	protected $fillable = [
-        'amount','currency','type','comment','created_at','updated_at','status','created_by'
+       'donar_id','amount','currency','type','comment','created_at','updated_at','status','created_by'
     ];
 
 	static function getValidationRules(){
     	$rules = [
-		    'donar_id' => 'required','amount' => 'required','currency' => 'required','type' => 'required'
+		    'amount' => 'required','currency' => 'required','type' => 'required'
 		];
 		return $rules;
     }

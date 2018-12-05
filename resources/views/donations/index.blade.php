@@ -1,6 +1,6 @@
 @extends('home')
 @section('content')
-
+<?php use App\Donar; ?> 
 <style type="text/css">
 .btn{
     padding: 6px 12px !important;
@@ -54,6 +54,9 @@
                               <tr>
 
                   <th scope="col" style="width: 10% !important">
+                      Date
+                  </th>
+                  <th scope="col" style="width: 10% !important">
                       Donar Name
                   </th>
 
@@ -77,13 +80,22 @@
                         </thead>
 
                         <tbody>
+
+
+                          
                           @foreach($models as $model)
+
+<?php   $Donar = Donar::findOrFail($model->donar_id); 
+?>
+
                                   <tr>
                           
                           <td>
-                            <strong style="color: #545454">{{$model->donar->fname." ".$model->donar->lname}}</strong>
+                            <strong style="color: #545454">{{$model->created_at}}</strong>
+                          </td> 
+                          <td>
+                            <strong style="color: #545454">{{$Donar->fname." ".$Donar->lname}}</strong>
                           </td>
-
                           <td>
                             <strong style="color: #545454">{{$model->currencies->currency_symbols.' '.$model->amount}}</strong>
                           </td>

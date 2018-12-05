@@ -81,6 +81,7 @@ class DonarController extends Controller
         $model = Donar::findOrFail($id);
        
       	return view('donars.show', array('model' => $model));
+        //return view('donations.index', array('model' => $model));
     }
 
     /**

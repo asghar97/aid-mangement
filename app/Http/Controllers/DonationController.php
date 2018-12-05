@@ -62,24 +62,25 @@ class DonationController extends Controller
         $this->validate($request, Donation::getValidationRules());
 
         $input = $request->all();
-        
-       // $rows = Donar::where('fname','LIKE',"%$match%")->get();
        
-       if(($input['donar_id'])){
-             Session::flash('flash_message', 'Add Donar first !');
-       }
-       else{ }
        
+              
         $date = date('Y-m-d H:i:s');
         $input['created_by'] = Auth::user()->id;
         $input['status'] = 1;
 
+         
+      if(empty($input['donar_id'])){
+        Session::flash('flash_message', 'Add donar first!');
+        return redirect()->back();
+       }
+       else{
 	    Donation::create($input);
 
 	    Session::flash('flash_message', 'Successfully added!');
 
 	    return redirect()->back();
-    }
+}    }
 
     /**
      * Display the specified resource.
