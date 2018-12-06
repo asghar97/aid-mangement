@@ -171,4 +171,11 @@ class DonationController extends Controller
         
         echo json_encode($json_data);//format the array into json data
     }
+
+    function ledger($id,$type){
+       
+        return view('donations.ledger', array('user_id' => $id ,'type' =>$type));
+
+      
+    }
 }

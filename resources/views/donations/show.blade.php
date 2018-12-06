@@ -19,7 +19,7 @@
 	<div class="container">
 		<div class="row" style="border-bottom: 1px solid gray">
 			<div class="col-md-6">
-        <img class="responsive" src="http://localhost/Aidmangment/public/images/logo/AbdullahAid.png" width="250" style="margin: 15%">
+        <img class="responsive" src="http://localhost/am/public/images/logo/AbdullahAid.png" width="250" style="margin: 15%">
       </div>
       <div class="col-md-6 align-right">
         <h1 style="margin-bottom: -9px">RECEIPT</h1>

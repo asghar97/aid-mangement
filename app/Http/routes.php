@@ -15,7 +15,9 @@ Route::get('/', 'HomeController@index');
 Route::Auth();
 
 Route::get('expensesReport','ExpenseController@report');
-
+Route::get('donarsLedger/{id}','DonarController@ledger');
+Route::get('donationLedger/{id}/{type}','DonationController@ledger');
+Route::get('expensesLedger/{id}/{type}','ExpenseController@ledger');
 
 Route::resource('donars','DonarController');
 Route::resource('donations','DonationController');

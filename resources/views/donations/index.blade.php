@@ -56,19 +56,19 @@
                   <th scope="col" style="width: 10% !important">
                       Date
                   </th>
-                  <th scope="col" style="width: 10% !important">
+                  <th scope="col" style="width: 5% !important">
                       Donar Name
                   </th>
 
-                  <th scope="col" style="width: 10% !important">
+                  <th scope="col" style="width: 4% !important">
                     Amount
                   </th>
 
-                  <th scope="col" style="width: 10% !important">
+                  <th scope="col" style="width: 8% !important">
                     Donation type
                   </th>
 
-                  <th scope="col" style="width: 10% !important">
+                  <th scope="col" style="width: 8% !important">
                     Comments
                   </th>
 
@@ -84,12 +84,9 @@
 
                           
                           @foreach($models as $model)
+                          <?php   $Donar = Donar::findOrFail($model->donar_id); ?> 
 
-<?php   $Donar = Donar::findOrFail($model->donar_id); 
-?>
-
-                                  <tr>
-                          
+                          <tr>
                           <td>
                             <strong style="color: #545454">{{$model->created_at}}</strong>
                           </td> 
@@ -111,6 +108,7 @@
                         <td>
                           <a href="{{ route('donations.edit', $model->id) }}" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Edit">Edit</a>
                           <a href="{{ route('donations.show', $model->id) }}" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Edit">View</a>
+                          <a href='{{ url("/donationLedger/{$model->donar_id}/{$model->type}") }}' class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Edit">Ledger</a>
                         </td>
                       </tr>
                 @endforeach

@@ -164,5 +164,11 @@ class ExpenseController extends Controller
 	    return redirect()->route('expenses.index');
     }
 
+    public function ledger($id,$type){
+
+    return view('expenses.ledger', array('user_id' => $id ,'type' =>$type));
+
+    }
+
 
 }

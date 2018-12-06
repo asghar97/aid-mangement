@@ -57,7 +57,7 @@
                       Image
                   </th>
 
-                  <th scope="col" style="width: 20% !important">
+                  <th scope="col" style="width: 10% !important">
                     Identification No
                   </th>
 
@@ -129,6 +129,9 @@
 
                         <td>
                           <a href="{{ route('donars.edit', $model->id) }}" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Edit">Edit</a>
+                        
+                        
+                          <a href='{{ url("donarsLedger/{$model->id}") }}' class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Edit">Ledger</a>
                         </td>
                       </tr>
                 @endforeach

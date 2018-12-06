@@ -54,23 +54,23 @@
 
                               <tr>
 
-                              <th scope="col" style="width: 10% !important">
+                              <th scope="col" style="width: 8% !important">
                                 Amount
                               </th>
 
-                              <th scope="col" style="width: 10% !important">
+                              <th scope="col" style="width: 8% !important">
                                 Donation type
                               </th>
 
-                              <th scope="col" style="width: 10% !important">
+                              <th scope="col" style="width: 5% !important">
                                 Location
                               </th>
 
-                              <th scope="col" style="width: 10% !important">
+                              <th scope="col" style="width: 8% !important">
                                 Comments
                               </th>
 
-                              <th scope="col" style="width: 10% !important">
+                              <th scope="col" style="width: 8% !important">
                                 Action
                               </th>
               
@@ -101,6 +101,8 @@
                         <td>
                           <a href="{{ route('expenses.edit', $model->id) }}" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Edit">Edit</a>
                           <a href="{{ route('expenses.show', $model->id) }}" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="show">View</a>
+                          <a href='{{ url("/expensesLedger/{$model->id}/{$model->type}") }}' class="btn btn-info" data-toggle="tooltip" data-placement="top" title="show">Ledger</a>
+                          
                         </td>
                       </tr>
                 @endforeach
