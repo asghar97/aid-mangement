@@ -16,7 +16,7 @@ Route::Auth();
 
 Route::get('expensesReport','ExpenseController@report');
 Route::get('donarsLedger/{id}','DonarController@ledger');
-Route::get('donationLedger/{id}/{type}','DonationController@ledger');
+Route::get('typeLedger/{name}','TypeController@ledger');//Type ledger
 Route::get('expensesLedger/{id}/{type}','ExpenseController@ledger');
 
 Route::resource('donars','DonarController');

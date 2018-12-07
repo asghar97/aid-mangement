@@ -140,10 +140,6 @@ class DonarController extends Controller
 	    return redirect()->route('donars.index');
     }
 
-    public function ledger($id){
-
-
-        return view('donars.ledger',array('user_id' => $id));
-    }
+    
 
 }

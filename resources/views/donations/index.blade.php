@@ -108,7 +108,7 @@
                         <td>
                           <a href="{{ route('donations.edit', $model->id) }}" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Edit">Edit</a>
                           <a href="{{ route('donations.show', $model->id) }}" class="btn btn-info" data-toggle="tooltip" data-placement="top" title="Edit">View</a>
-                          <a href='{{ url("/donationLedger/{$model->donar_id}/{$model->type}") }}' class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Edit">Ledger</a>
+                          <!--<a href='{{ url("/donationLedger/{$model->donar_id}/{$model->type}") }}' class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Edit">Ledger</a>-->
                         </td>
                       </tr>
                 @endforeach

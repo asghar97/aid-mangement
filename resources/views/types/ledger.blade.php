@@ -2,6 +2,7 @@
 use App\Currency;
 use App\Donation;
 use App\Donar;
+use App\Expense;
  ?>
 @extends('home')
 @section('content')
@@ -24,7 +25,7 @@ use App\Donar;
       <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
           <div class="x_title">
-            <h2>Ledger</h2>
+            <h2><?php echo $name." "."Ledger" ?></h2>
             <ul class="nav navbar-right panel_toolbox">
               <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
               </li>
@@ -43,7 +44,7 @@ use App\Donar;
             <div class="clearfix"></div>
           </div>
           <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="col-md-6 col-sm-6 col-xs-6">
               <div class="x_content">
                 <div class="table-responsive">
                   <table id="datatable" class="table table-striped table-bordered table-hover">
@@ -56,28 +57,20 @@ use App\Donar;
                           Donar Name
                         </th>
                         <th scope="col" style="width: 20% !important">
-                          Donation Type
-                        </th>
-                         
-                        <th scope="col" style="width: 20% !important">
-                          Amount
-                        </th>
-                        <th scope="col" style="width: 20% !important">
-                          Total
+                          Donation Amount
                         </th>
                       </tr>
                     </thead>
                     <tbody>
                           <?php 
-                          
-                         // echo $user_id;
-                         // echo $type;
-                           $models=DB::table('donation')->where('type','=',$type)->get();
+                         $models=DB::table('donation')->where('type','=',$name)->get();
+                            $Expense = DB::table('expense')->where('type','=',$name)->get();
                             $t = 0;
-                          // echo "<pre>"; print_r($models); die();
                             ?>
                           @foreach($models as $model)
-                          <?php 
+                  
+                          
+                            <?php
                               $Donar = Donar::findOrFail($model->donar_id);
                               $Currency = Currency::findOrFail($model->currency);
                               //echo "<pre>"; print_r($Currency); die()
@@ -88,34 +81,68 @@ use App\Donar;
                            ?>
 
                            
-                      <tr>
+                        <tr>
+                          <td>
+                            <strong style="color: #545454">{{$model->created_at}}</strong>
+                          </td>
+                          
                           <td>
                             <strong style="color: #545454">{{$Donar->fname." ".$Donar->lname}}</strong>
                           </td> 
+                         
                           <td>
-                            <strong style="color: #545454">{{$model->created_at}}</strong>
-                          </td> 
+                            <strong style="color: #545454">{{$model->amount}}</strong><br>
+                            <small>Rs {{$model->amount*$Currency->currency_rate}}</small>
+                          </td>
+                          @endforeach
+                           </tr>
+                            </tbody>
+                           <div class="col-md-6 col-sm-6 col-xs-6">
+              <div class="x_content">
+                <div class="table-responsive">
+                  <table id="datatable" class="table table-striped table-bordered table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col" style="width: 10% !important">
+                          Date
+                        </th>
+                        <th scope="col" style="width: 20% !important">
+                          Expense Amount
+                        </th>
+                         <th scope="col" style="width: 20% !important">
+                          Currency Rate
+                        </th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+                      <tr>
+                           @foreach($Expense as $expense)
+                           <?php  $Currency = Currency::findOrFail($expense->currency);?>
                           <td>
-                            <strong style="color: #545454">{{$model->type}}</strong>
-                          </td> 
+                            <strong style="color: #545454">{{$expense->created_at}}</strong>
+                          </td>
                           <td>
-                            <strong style="color: #545454">{{$Currency->currency_symbols}}    {{$model->amount}}</strong>
+                            <strong style="color: #545454">{{$expense->location}}</strong>
+                          </td>
+                           <td>
+                            <strong style="color: #545454">{{$Currency->currency_symbols}} {{$expense->amount}}</strong><br>
+                            <small>Rs {{$expense->amount*$Currency->currency_rate}}</small>
                           </td> 
-                          <td>
-                            <strong style="color: #545454">{{$Currency->currency_symbols}}    {{$model->amount}} * {{$Currency->currency_rate}} = {{$model->amount*$Currency->currency_rate}}</strong>
-                          </td> 
-                            @endforeach
-                    </tbody>
-                         <td colspan="4" style="text-align: center;">
+
+                          @endforeach 
+                     </tr>
+                      </table>
+                      <!--   <td colspan="5" style="text-align: center;">
                             <strong style="color: #545454">Grand Total</strong>
                           </td>
                            <td>
                             <strong style="color: #545454"><?php echo $t ?></strong>
-                          
+                          -->
 
                     
 
-                  </table>
+                 
                 </div>
               </div>
             </div>

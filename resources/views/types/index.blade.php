@@ -67,14 +67,17 @@
 
                         <tbody>
                           @foreach($models as $model)
+
                           <tr>
                             <td>
                             <strong style="color: #545454">{{$model->name}}</strong>
                             </td>
 
-
+                            <?php $name =trim($model->name);?>
                             <td>
                               <a href="{{ route('types.edit', $model->id) }}" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Edit">Edit</a>
+                              <a href='{{ url("/typeLedger/$name") }}' class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Edit">Ledger</a>
+                         
                             </td>
                       </tr>
                 @endforeach

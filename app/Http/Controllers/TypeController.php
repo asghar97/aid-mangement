@@ -129,4 +129,10 @@ class TypeController extends Controller
 
 	    return redirect()->route('types.index');
     }
+
+    public function ledger($name){
+
+
+        return view('types.ledger',array('name' => $name ));
+    }
 }
